@@ -1,0 +1,14 @@
+package com.example.cap
+
+import com.google.gson.annotations.SerializedName
+
+
+data class StoreInfo(
+
+    @SerializedName("name") val storeName: String,
+    @SerializedName("phoneNumber") val storeNum: String,
+    @SerializedName("number") val onerNum:String,
+    @SerializedName("foodOrigin") val originFood: String,
+    @SerializedName("introduce") val storeIntro: String,
+
+    )

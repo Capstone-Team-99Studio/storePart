@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Store2">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="가게등록"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="SpeakableTextPresentCheck">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/mainImgTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="메인 이미지"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/storeImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <ImageButton
+                    android:id="@+id/CameraBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/ic_menu_camera"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <Button
+                    android:id="@+id/GlyBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="갤러리" />
+
+                <TextView
+                    android:id="@+id/storeName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="10dp"
+                    android:text="가게이름"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/storeName_ip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="가게 이름을 입력해주세요."
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:paddingTop="10dp"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/storeNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="가게 전화번호"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/storeNum_ip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="가게 전화번호를 입력해주세요."
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+
+                <TextView
+                    android:id="@+id/onerNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="10dp"
+                    android:text="사업자 번호"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/onerNum_ip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="사업자 번호를 입력해주세요"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+
+                <TextView
+                    android:id="@+id/toOrigin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="원산지"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/toOrigin_ip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="원산지를 입력해주세요"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+
+                <TextView
+                    android:id="@+id/storeIntro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="가게소개"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/storeIntro_ip"
+                    android:layout_width="match_parent"
+                    android:layout_height="126dp"
+                    android:ems="10"
+                    android:hint="가게를 소개해주세요"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+
+                <TextView
+                    android:id="@+id/postText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="post test 텍스트입니다." />
+
+                <Button
+                    android:id="@+id/signUpBtn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="16dp"
+                    android:text="가게등록" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

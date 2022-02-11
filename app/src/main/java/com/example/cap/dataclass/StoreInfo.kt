@@ -1,4 +1,4 @@
-package com.example.cap
+package com.example.cap.dataclass
 
 import com.google.gson.annotations.SerializedName
 

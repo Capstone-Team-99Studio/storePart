@@ -12,6 +12,8 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
 import com.example.cap.databinding.ActivityStore2Binding
+import com.example.cap.dataclass.StoreInfo
+import com.example.cap.retrofit2.API
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -64,7 +66,7 @@ class Store2 : AppCompatActivity() {
         storagePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
 
         binding.signUpBtn2.setOnClickListener({
-            val data = StoreInfo(
+            val Storedata = StoreInfo(
                 binding.storeNameIp.text.toString(),
                 binding.storeNumIp.text.toString(),
                 binding.onerNumIp.text.toString(),
@@ -73,7 +75,7 @@ class Store2 : AppCompatActivity() {
             )
 
 
-            api.post_users(data).enqueue(object : Callback <StoreInfo> {
+            api.post_users("store", Storedata).enqueue(object : Callback <StoreInfo> {
                 override fun onResponse(call: Call<StoreInfo>, response: Response<StoreInfo>) {
                     Log.d("Store",response.toString())
                     Log.d("Store", response.body().toString())

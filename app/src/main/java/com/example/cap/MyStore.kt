@@ -4,10 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cap.adapter.foodAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import com.example.cap.databinding.ActivityMyStoreBinding
+import com.example.cap.retrofit2.API
 
 class MyStore : AppCompatActivity() {
     val binding by lazy { ActivityMyStoreBinding.inflate(layoutInflater)}
@@ -17,23 +20,48 @@ class MyStore : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val list = ArrayList<foodlist>()
-        api.get_users().enqueue(object : Callback<StoreInfo>{
-            override fun onResponse(call: Call<StoreInfo>, response: Response<StoreInfo>) {
-                Log.d("log",response.toString())
+
+         api.get_foods("food").enqueue(object : Callback<FoodData>{
+            override fun onResponse(call: Call<FoodData>, response: Response<FoodData>) {
+                Log.d("log", response.toString())
                 Log.d("log", response.body().toString())
-                if(!response.body().toString().isEmpty())
-                    binding.storeIntro2.setText(response.body()?.storeName.toString());
-                    binding.storeIntroDetail.setText(response.body()?.storeIntro.toString());
+                if (response.isSuccessful) {
+                    val body = response.body()
+                    body?.let {
+                        binding.flist.apply {
+                            layoutManager = LinearLayoutManager(this@MyStore)
+                            adapter = foodAdapter(it.data)
+                        }
+                    }
+                }
             }
 
-            override fun onFailure(call: Call<StoreInfo>, t: Throwable) {
+
+            override fun onFailure(call: Call<FoodData>, t: Throwable) {
                 Log.d("log",t.message.toString())
-                Log.d("log","fail")
-            }
+                Log.d("log","fail")            }
 
         })
 
+        binding.myStoreLayout.setOnClickListener(){
+            val dialog = CustomDialog()
+
+            dialog.setButtonClickListener(object: CustomDialog.OnButtonClickListener{
+                override fun onButton1Clicked() {
+
+                }
+
+                override fun onButton2Clicked() {
+
+                }
+
+                override fun onButton3Clicked() {
+
+                }
+            })
+            dialog.show(supportFragmentManager, "CustomDialog")
+
+        }
 
         //화면 넘김
         binding.menuSingBtn1.setOnClickListener({

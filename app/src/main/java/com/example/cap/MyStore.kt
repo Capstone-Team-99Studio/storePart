@@ -44,22 +44,8 @@ class MyStore : AppCompatActivity() {
         })
 
         binding.myStoreLayout.setOnClickListener(){
-            val dialog = CustomDialog()
-
-            dialog.setButtonClickListener(object: CustomDialog.OnButtonClickListener{
-                override fun onButton1Clicked() {
-
-                }
-
-                override fun onButton2Clicked() {
-
-                }
-
-                override fun onButton3Clicked() {
-
-                }
-            })
-            dialog.show(supportFragmentManager, "CustomDialog")
+            val storeDialog = CustomDialogStore()
+            storeDialog.show(supportFragmentManager, "CustomDialogStore")
 
         }
 

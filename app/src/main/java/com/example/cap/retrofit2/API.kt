@@ -32,11 +32,6 @@ interface API {
     fun get_users(
         @Path("custom_uri", encoded = true) customUri: String
     ): Call<StoreInfo>
-
-    @GET("/{custom_uri}")
-    @Headers("accept: application/json",
-        "content-type: application/json"
-    )
     fun get_foods(
         @Path("custom_uri", encoded = true) customUri: String
     ): Call<FoodData>

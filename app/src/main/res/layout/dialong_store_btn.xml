@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="67dp"
         android:layout_marginTop="10dp"
-        android:text="가게 정보를 수정하시 겠습니까?"
+        android:text="가게 정보를 수정하시겠습니까?"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold" />

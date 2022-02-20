@@ -21,8 +21,8 @@ class CustomDialogStore : DialogFragment() {
         //dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         binding.yseBtn.setOnClickListener {
-            //val setintent = Intent(this.context , StoreSetting::class.java)
-            //startActivity(setintent)
+            val setintent = Intent(this.context , StoreSettingActivity::class.java)
+            startActivity(setintent)
             dismiss()    // 대화상자를 닫는 함수
         }
         binding.noBtn.setOnClickListener {
@@ -31,7 +31,6 @@ class CustomDialogStore : DialogFragment() {
 
         return view
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

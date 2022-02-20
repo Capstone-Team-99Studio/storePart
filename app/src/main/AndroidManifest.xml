@@ -24,6 +24,9 @@
         android:theme="@style/Theme.Cap"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".StoreSettingActivity"
+            android:exported="true" />
+        <activity
             android:name=".StoreSetting"
             android:exported="true"
             android:label="@string/title_activity_store_setting"

@@ -43,7 +43,6 @@ class CustomDialog : DialogFragment() {
 
         return view
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

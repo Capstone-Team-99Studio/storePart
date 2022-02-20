@@ -165,11 +165,18 @@
                     android:hint="post test 텍스트입니다." />
 
                 <Button
+                    android:id="@+id/sampleBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="등록x 버튼" />
+
+                <Button
                     android:id="@+id/signUpBtn2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="16dp"
-                    android:text="가게등록" />
+                    android:text="가게등록"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
 
             </LinearLayout>
         </ScrollView>

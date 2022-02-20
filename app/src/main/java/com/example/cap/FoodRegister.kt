@@ -13,9 +13,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
 import com.example.cap.databinding.ActivityFoodRegisterBinding
 import com.example.cap.retrofit2.API
+import com.example.cap.retrofit2.APIfood
+import com.example.cap.retrofit2.APIstore
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 
 class FoodRegister : AppCompatActivity() {
@@ -33,6 +37,12 @@ class FoodRegister : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://da86-125-180-55-163.ngrok.io/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val retrofitService = retrofit.create(APIfood::class.java)
 
         storagePermission =
             registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
@@ -74,19 +84,23 @@ class FoodRegister : AppCompatActivity() {
             val fooddata = Food(
                 binding.menuNameIp.text.toString(),
                 binding.costIp.text.toString(),
-                binding.tasteTextIp.text.toString(),
-                binding.menuIntroIp.text.toString()
+                //binding.tasteTextIp.text.toString(),
+                binding.menuIntroIp.text.toString(),
+
             )
 
-            api.post_foods("음식등록주소", fooddata).enqueue(object : Callback<Food> {
+            retrofitService.post_foods(fooddata).enqueue(object : Callback<Food> {
                 override fun onResponse(call: Call<Food>, response: Response<Food>) {
-                    Log.d("Food", response.toString())
-                    Log.d("Food", response.body().toString())
+                    Log.d("Foodpost", response.toString())
+                    Log.d("Foodpost", response.body().toString())
+                    if(!response.body().toString().isEmpty()){
+                        binding.textView11.setText(response.body().toString())
+                    }
                 }
 
                 override fun onFailure(call: Call<Food>, t: Throwable) {
-                    Log.d("Food", t.message.toString())
-                    Log.d("Food", "fail")
+                    Log.d("Foodpost", t.message.toString())
+                    Log.d("Foodpost", "fail")
                 }
 
             })

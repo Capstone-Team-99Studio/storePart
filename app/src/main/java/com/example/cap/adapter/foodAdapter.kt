@@ -1,15 +1,18 @@
 package com.example.cap.adapter
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cap.CustomDialogStore
 import com.example.cap.Food
+import com.example.cap.FoodRegister
 import com.example.cap.R
 
-class foodAdapter(private val items: List<Food>) : RecyclerView.Adapter<foodAdapter.ViewHolder>() {
+class foodAdapter(val context: Context, private val items: List<Food>) : RecyclerView.Adapter<foodAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = items.size
 
@@ -17,7 +20,6 @@ class foodAdapter(private val items: List<Food>) : RecyclerView.Adapter<foodAdap
         val inflatedView = LayoutInflater.from(parent.context).inflate(R.layout.fooditem, parent, false)
         return ViewHolder(inflatedView)
     }
-
 
     //ViewHolder 단위 객체로 View의 데이터를 설정합니다
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
@@ -39,9 +41,11 @@ class foodAdapter(private val items: List<Food>) : RecyclerView.Adapter<foodAdap
         Log.d("recyclerview ", "${item.food_name}")
         holder.title.text = item.food_name
         holder.price.text = item.food_price
-        holder.intro.text = item.food_intro
+        holder.intro.text = item.food_status
 
 
+        holder.itemView.setOnClickListener(){
+        }
 
     }
 

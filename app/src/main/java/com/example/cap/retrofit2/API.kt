@@ -15,6 +15,7 @@ interface API {
     @POST("/{custom_uri}")
     @Headers("accept: application/json",
         "content-type: application/json")
+
     fun post_users(
         @Path("custom_uri", encoded = true) customUri: String,
         @Body jsonparams: StoreInfo
@@ -32,9 +33,6 @@ interface API {
     fun get_users(
         @Path("custom_uri", encoded = true) customUri: String
     ): Call<StoreInfo>
-    fun get_foods(
-        @Path("custom_uri", encoded = true) customUri: String
-    ): Call<FoodData>
 
 
     companion object {
@@ -48,10 +46,10 @@ interface API {
 
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)
-//               .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
                 .create(API::class.java)
         }
     }
 }
+

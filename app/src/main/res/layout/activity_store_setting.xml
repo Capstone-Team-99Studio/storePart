@@ -4,7 +4,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context=".FoodRegister">
+tools:context=".StoreSettingActivity">
 
 <LinearLayout
     android:id="@+id/linearLayout3"
@@ -25,7 +25,7 @@ tools:context=".FoodRegister">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="메뉴 등록"
+        android:text="가게 정보 수정"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold" />
@@ -41,118 +41,136 @@ tools:context=".FoodRegister">
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/mainImgTxt"
+                android:id="@+id/RemainImgTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="메뉴 사진"
+                android:text="메인 이미지"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/menuImg"
+                android:id="@+id/RestoreImg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <ImageButton
-                android:id="@+id/MenuCameraBtn"
+                android:id="@+id/ReCameraBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@android:drawable/ic_menu_camera"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Button
-                android:id="@+id/MenuGlyBtn"
+                android:id="@+id/ReGlyBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="갤러리" />
 
             <TextView
-                android:id="@+id/menuName"
+                android:id="@+id/RestoreName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingEnd="10dp"
-                android:text="메뉴명"
+                android:text="가게이름"
                 android:textAllCaps="false"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/menuName_ip"
+                android:id="@+id/RestoreName_ip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="메뉴명을 입력해주세요."
+                android:hint="가게 이름을 입력해주세요."
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 android:paddingTop="10dp"
                 android:textAlignment="viewStart" />
 
             <TextView
-                android:id="@+id/costText"
+                android:id="@+id/RestoreNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="가격"
+                android:text="가게 전화번호"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/cost_ip"
+                android:id="@+id/RestoreNum_ip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="가격을 입력해주세요."
+                android:hint="가게 전화번호를 입력해주세요."
                 android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
             <TextView
-                android:id="@+id/tasteText"
+                android:id="@+id/ReonerNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingEnd="10dp"
-                android:text="맛 종류"
+                android:text="사업자 번호"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/tasteText_ip"
+                android:id="@+id/ReonerNum_ip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="맛 종류를 입력해주세요"
+                android:hint="사업자 번호를 입력해주세요"
                 android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
             <TextView
-                android:id="@+id/menuIntro"
+                android:id="@+id/RetoOrigin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="메뉴 소개"
+                android:text="원산지"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/menuIntro_ip"
+                android:id="@+id/RetoOrigin_ip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="원산지를 입력해주세요"
+                android:inputType="textPersonName"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:id="@+id/RestoreIntro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="가게소개"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/RestoreIntro_ip"
                 android:layout_width="match_parent"
                 android:layout_height="126dp"
                 android:ems="10"
-                android:hint="메뉴를 소개해주세요"
+                android:hint="가게를 소개해주세요"
                 android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/RepostText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="post확인용" />
+                android:hint="post test 텍스트입니다." />
 
             <Button
-                android:id="@+id/menuSignUpBtn"
+                android:id="@+id/ResignUpBtn2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="16dp"
-                android:text="등록" />
+                android:text="가게등록"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
         </LinearLayout>
     </ScrollView>

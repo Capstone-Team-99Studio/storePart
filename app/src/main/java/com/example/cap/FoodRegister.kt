@@ -12,6 +12,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
 import com.example.cap.databinding.ActivityFoodRegisterBinding
+import com.example.cap.dataclass.FoodListDto
 import com.example.cap.retrofit2.API
 import com.example.cap.retrofit2.APIfood
 import com.example.cap.retrofit2.APIstore
@@ -81,16 +82,17 @@ class FoodRegister : AppCompatActivity() {
 
 
         binding.menuSignUpBtn.setOnClickListener({
-            val fooddata = Food(
+            val fooddata = FoodListDto(
                 binding.menuNameIp.text.toString(),
                 binding.costIp.text.toString(),
+                binding.costIp.text.toString()
                 //binding.tasteTextIp.text.toString(),
-                binding.menuIntroIp.text.toString(),
+                //binding.menuIntroIp.text.toString(),
 
             )
 
-            retrofitService.post_foods(fooddata).enqueue(object : Callback<Food> {
-                override fun onResponse(call: Call<Food>, response: Response<Food>) {
+            retrofitService.post_foods(fooddata).enqueue(object : Callback<FoodListDto> {
+                override fun onResponse(call: Call<FoodListDto>, response: Response<FoodListDto>) {
                     Log.d("Foodpost", response.toString())
                     Log.d("Foodpost", response.body().toString())
                     if(!response.body().toString().isEmpty()){
@@ -98,7 +100,7 @@ class FoodRegister : AppCompatActivity() {
                     }
                 }
 
-                override fun onFailure(call: Call<Food>, t: Throwable) {
+                override fun onFailure(call: Call<FoodListDto>, t: Throwable) {
                     Log.d("Foodpost", t.message.toString())
                     Log.d("Foodpost", "fail")
                 }

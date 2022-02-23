@@ -7,12 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cap.CustomDialogStore
-import com.example.cap.Food
-import com.example.cap.FoodRegister
 import com.example.cap.R
+import com.example.cap.dataclass.FoodListDto
 
-class foodAdapter(val context: Context, private val items: List<Food>) : RecyclerView.Adapter<foodAdapter.ViewHolder>() {
+class foodAdapter(val context: Context, private val items: Array<FoodListDto>) : RecyclerView.Adapter<foodAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = items.size
 
@@ -28,9 +26,10 @@ class foodAdapter(val context: Context, private val items: List<Food>) : Recycle
             }
         }
 
+
         val title = v.findViewById<TextView>(R.id.foodname)
         val price = v.findViewById<TextView>(R.id.costText)
-        val intro = v.findViewById<TextView>(R.id.foodexplan)
+        //val intro = v.findViewById<TextView>(R.id.foodexplan)
 
     }
     //생성된 View에 보여줄 데이터를 설정
@@ -38,10 +37,10 @@ class foodAdapter(val context: Context, private val items: List<Food>) : Recycle
 
         val item = items[position]
 
-        Log.d("recyclerview ", "${item.food_name}")
+        Log.d("recyclerview ", "${item}")
         holder.title.text = item.food_name
         holder.price.text = item.food_price
-        holder.intro.text = item.food_status
+        //holder.intro.text = item.food_status
 
 
         holder.itemView.setOnClickListener(){

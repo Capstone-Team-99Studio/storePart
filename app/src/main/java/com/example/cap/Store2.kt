@@ -12,9 +12,8 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
 import com.example.cap.databinding.ActivityStore2Binding
-import com.example.cap.dataclass.StoreInfo
-import com.example.cap.dataclass.Test
-import com.example.cap.dataclass.store
+import com.example.cap.dataclass.Data
+import com.example.cap.dataclass.FoodListDto
 import com.example.cap.retrofit2.API
 import com.example.cap.retrofit2.APIstore
 import retrofit2.Call
@@ -37,6 +36,7 @@ class Store2 : AppCompatActivity() {
     lateinit var cameraLauncher:ActivityResultLauncher<Uri>
     lateinit var galleryLauncher:ActivityResultLauncher<String>
 
+    var foodarray = emptyArray<FoodListDto>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,17 +82,20 @@ class Store2 : AppCompatActivity() {
         }
 
         binding.signUpBtn2.setOnClickListener({
-           val Storedata = StoreInfo(
-                binding.storeNameIp.text.toString(),
-                binding.storeNumIp.text.toString(),
-                binding.onerNumIp.text.toString(),
-                binding.toOriginIp.text.toString(),
-                binding.storeIntroIp.text.toString()
-            )
+           val storedata =
+               Data(
+                   foodarray,
+                   binding.storeNameIp.text.toString(),
+                   binding.storeNumIp.text.toString(),
+                   binding.onerNumIp.text.toString(),
+                   binding.toOriginIp.text.toString(),
+                   binding.storeIntroIp.text.toString(),
+               )
 
 
-            retrofitService.post_users(Storedata).enqueue(object : Callback <StoreInfo> {
-                override fun onResponse(call: Call<StoreInfo>, response: Response<StoreInfo>) {
+
+            retrofitService.post_users(storedata).enqueue(object : Callback <Data> {
+                override fun onResponse(call: Call<Data>, response: Response<Data>) {
                     Log.d("Store",response.toString())
                     Log.d("Store", response.body().toString())
                     if(!response.body().toString().isEmpty()){
@@ -100,7 +103,7 @@ class Store2 : AppCompatActivity() {
                  }
                 }
 
-                override fun onFailure(call: Call<StoreInfo>, t: Throwable) {
+                override fun onFailure(call: Call<Data>, t: Throwable) {
                     Log.d("Store",t.message.toString())
                     Log.d("Store","스토어정보 통신실패")
                 }

@@ -6,13 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cap.adapter.exampleAdapter
-import com.example.cap.adapter.foodAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import com.example.cap.databinding.ActivityMyStoreBinding
-import com.example.cap.dataclass.Data
-import com.example.cap.dataclass.FoodListDto
 import com.example.cap.dataclass.example
 import com.example.cap.retrofit2.APIfood
 import retrofit2.Retrofit
@@ -26,7 +23,7 @@ class MyStore : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val adapter = exampleAdapter()
+        val adapter = exampleAdapter(CustomDialog(),this@MyStore)
         binding.flist.adapter = adapter
         binding.flist.layoutManager =  LinearLayoutManager(this@MyStore)
 
@@ -63,7 +60,6 @@ class MyStore : AppCompatActivity() {
         binding.myStoreLayout.setOnClickListener(){
             val storeDialog = CustomDialogStore()
             storeDialog.show(supportFragmentManager, "CustomDialogStore")
-
         }
 
         //화면 넘김

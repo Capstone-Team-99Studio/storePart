@@ -3,7 +3,7 @@ package com.example.cap.retrofit2
 
 //import com.example.cap.FoodData
 import com.example.cap.dataclass.FoodListDto
-import com.example.cap.dataclass.StoreInfo
+
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import retrofit2.Call
@@ -11,15 +11,11 @@ import retrofit2.http.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-interface API {
+/*interface API {
     @POST("/{custom_uri}")
     @Headers("accept: application/json",
         "content-type: application/json")
 
-    fun post_users(
-        @Path("custom_uri", encoded = true) customUri: String,
-        @Body jsonparams: StoreInfo
-    ): Call<StoreInfo>
     fun post_foods(
         @Path("custom_uri", encoded = true) customUri: String,
         @Body jsonparams: FoodListDto
@@ -51,5 +47,4 @@ interface API {
                 .create(API::class.java)
         }
     }
-}
-
+}*/

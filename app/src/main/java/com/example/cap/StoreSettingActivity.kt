@@ -12,8 +12,6 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
 import com.example.cap.databinding.ActivityStoreSettingBinding
-import com.example.cap.dataclass.StoreInfo
-import com.example.cap.retrofit2.API
 import com.example.cap.retrofit2.APIstore
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,7 +23,6 @@ import java.io.File
 class StoreSettingActivity : AppCompatActivity() {
 
     val binding by lazy { ActivityStoreSettingBinding.inflate(layoutInflater)}
-    val api = API.create();
 
     var photoUri: Uri? = null
     lateinit var cameraPermission: ActivityResultLauncher<String>

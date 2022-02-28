@@ -13,7 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
 import com.example.cap.databinding.ActivityFoodRegisterBinding
 import com.example.cap.dataclass.FoodListDto
-import com.example.cap.retrofit2.API
+
 import com.example.cap.retrofit2.APIfood
 import com.example.cap.retrofit2.APIstore
 import retrofit2.Call
@@ -26,7 +26,7 @@ import java.io.File
 class FoodRegister : AppCompatActivity() {
 
     val binding by lazy { ActivityFoodRegisterBinding.inflate(layoutInflater)}
-    val api = API.create()
+
 
     var photoUri: Uri? = null
     lateinit var cameraPermission: ActivityResultLauncher<String>

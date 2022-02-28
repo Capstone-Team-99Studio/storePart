@@ -14,7 +14,6 @@ import androidx.core.content.FileProvider
 import com.example.cap.databinding.ActivityStore2Binding
 import com.example.cap.dataclass.Data
 import com.example.cap.dataclass.FoodListDto
-import com.example.cap.retrofit2.API
 import com.example.cap.retrofit2.APIstore
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,7 +26,6 @@ class Store2 : AppCompatActivity() {
 
 
     val binding by lazy { ActivityStore2Binding.inflate(layoutInflater)}
-    val api = API.create();
 
     var photoUri:Uri? = null
     lateinit var cameraPermission:ActivityResultLauncher<String>

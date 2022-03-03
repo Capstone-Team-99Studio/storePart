@@ -1,27 +1,25 @@
 package com.example.cap.adapter
 
-import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cap.CustomDialog
 import com.example.cap.MyStore
-import com.example.cap.R
+import com.example.cap.ReviewActivity
 import com.example.cap.databinding.FooditemBinding
 import com.example.cap.dataclass.FoodListDto
 
-class exampleAdapter(val context: CustomDialog,val activity: MyStore): RecyclerView.Adapter<Holder>(){
+class exampleAdapter(val context: CustomDialog, val activity: MyStore): RecyclerView.Adapter<foodHolder>(){
 
     var menuList : Array<FoodListDto>? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): foodHolder {
         val binding = FooditemBinding.inflate(LayoutInflater.from(parent.context),parent, false)
-        return Holder(binding)
+        return foodHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: Holder, position: Int) {
+    override fun onBindViewHolder(holder: foodHolder, position: Int) {
         val menu = menuList?.get(position)
         holder.setMenu(menu)
 
@@ -41,7 +39,7 @@ class exampleAdapter(val context: CustomDialog,val activity: MyStore): RecyclerV
     }
 }
 
-class Holder(val binding: FooditemBinding): RecyclerView.ViewHolder(binding.root)
+class foodHolder(val binding: FooditemBinding): RecyclerView.ViewHolder(binding.root)
 {
 
     init {
